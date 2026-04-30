@@ -1,50 +1,134 @@
-# Welcome to your Expo app 👋
+# H2I 2026 Mobile Starter Code 📱
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This is a starter template for building mobile applications using [Expo](https://expo.dev) and [React Native](https://reactnative.dev). 
 
-## Get started
+## Features
 
-1. Install dependencies
+- **Expo Router**: File-based routing for seamless navigation
+- **Tab Navigation**: Bottom tab bar with haptic feedback
+- **Custom Components**: Reusable themed text, views, and UI elements
+- **Dummy Backend**: Example API integration for prototyping
+- **TypeScript**: Full TypeScript support for type safety
+
+## Project Structure
+
+```
+app/
+├── _layout.tsx          # Root layout with theme provider
+├── modal.tsx            # Example modal screen
+├── (tabs)/
+│   ├── _layout.tsx      # Tab navigator configuration
+│   ├── index.tsx        # Home screen
+│   └── about.tsx        # About screen
+└── api/
+    └── hello.ts         # Example API route (web only)
+
+components/
+├── ui/
+│   ├── collapsible.tsx      # Collapsible content component
+│   ├── icon-symbol.tsx      # Cross-platform icon component
+│   └── icon-symbol.ios.tsx  # iOS-specific icon implementation
+├── external-link.tsx        # External link handler
+├── haptic-tab.tsx           # Tab button with haptic feedback
+├── hello-wave.tsx           # Animated greeting component
+├── parallax-scroll-view.tsx # Parallax scrolling container
+├── themed-text.tsx          # Themed text component
+└── themed-view.tsx          # Themed view component
+
+constants/
+└── theme.ts             # Color scheme definitions
+
+hooks/
+├── use-color-scheme.ts      # Color scheme detection
+├── use-color-scheme.web.ts  # Web-specific color scheme
+└── use-theme-color.ts       # Theme color resolver
+
+lib/
+└── dummy-backend.ts     # Mock API client
+
+assets/
+└── images/             # Static image assets
+
+scripts/
+└── reset-project.js    # Project reset utility
+```
+
+## Key Components
+
+### Navigation & Layout
+
+- **Root Layout** (`app/_layout.tsx`): Sets up theme provider and stack navigation
+- **Tab Layout** (`app/(tabs)/_layout.tsx`): Configures bottom tab navigation with haptic feedback
+- **Modal** (`app/modal.tsx`): Example modal screen for overlays
+
+### UI Components
+
+- **ThemedText**: Text component that adapts to light/dark themes
+- **ThemedView**: View container with theme-aware backgrounds
+- **HapticTab**: Tab button with touch feedback
+- **ParallaxScrollView**: Smooth scrolling with parallax header effects
+- **Collapsible**: Expandable/collapsible content sections
+- **IconSymbol**: Cross-platform icon rendering
+
+## Getting Started
+
+1. **Install dependencies**
 
    ```bash
    npm install
    ```
 
-2. Start the app
+2. **Start the development server**
 
    ```bash
    npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+3. **Run on your device**
+   - [Development build](https://docs.expo.dev/develop/development-builds/introduction/)
+   - [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
+   - [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
+   - [Expo Go](https://expo.dev/go) (limited sandbox)
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## Next Steps
 
-## Get a fresh project
+### Adding New Screens
 
-When you're ready, run:
+1. Create a new file in `app/(tabs)/` for tab screens or `app/` for stack screens
+2. Use `expo-router` file-based routing - the filename becomes the route
+3. Import and use themed components for consistent styling
 
-```bash
-npm run reset-project
-```
+### Modifying Themes
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+- Edit `constants/theme.ts` to change colors
+- Components automatically adapt to theme changes
+- Use `useColorScheme()` hook for theme-aware logic
 
-## Learn more
+### Adding Components
 
-To learn more about developing your project with Expo, look at the following resources:
+- Place reusable components in `components/`
+- Use `ThemedText` and `ThemedView` for theme compatibility
+- Follow the existing naming conventions
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### API Integration
 
-## Join the community
+- Replace `lib/dummy-backend.ts` with your real API client. We recommend using Supabase for the Backend!
+- Update `app/api/hello.ts` for server-side routes (web)
+- Use standard fetch or libraries like Axios
 
-Join our community of developers creating universal apps.
+### Navigation
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- Add new tabs in `app/(tabs)/_layout.tsx`
+- Use `Link` component from `expo-router` for navigation
+- Modals are defined in the root layout
+
+## Learn More
+
+- [Expo Documentation](https://docs.expo.dev/): Fundamentals and advanced guides
+- [Expo Router](https://docs.expo.dev/router/introduction/): File-based routing
+- [React Native](https://reactnative.dev/docs/getting-started): Core framework docs
+- [React Navigation](https://reactnavigation.org/): Navigation patterns
+
+
+## Happy hacking! 
